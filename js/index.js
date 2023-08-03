@@ -1,7 +1,13 @@
 const scroller = new Scroller(false) // 스크롤 객체 생성
 
 window.addEventListener('load', function(e){
-
+    document.body.style.display = 'none'
+    function showLoading(){
+    document.body.style.display = 'block'
+    alert("welcome!")
+    }
+    setTimeout(showLoading, 2000)
+    this.clearTimeout(showLoading)
     // 모드변경
     const mode = document.querySelector('.mode')
     const header =document.querySelector('header')
