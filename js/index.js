@@ -111,11 +111,11 @@ window.addEventListener('load', function(e){
             
             searchBar.addEventListener('keyup', function(e){
                 for(let i=0; i < searchedItems.length; i++){
-                    console.log(searchBar.value)
+                    console.log(searchBar.value.toLowerCase())
                     searchedItems[i].style.display = 'none'
                     const name = searchedItems[i].querySelector('main .main-top .result .item h3')
                     console.log(name.innerText.toLowerCase())
-                    if(name.innerText.toLowerCase().includes(e.target.value) || e.target.value == ' ' || e.target.value == null){
+                    if(name.innerText.toLowerCase().includes(e.target.value) || name.innerText.toUpperCase().includes(e.target.value) || e.target.value == ' ' || e.target.value == null){
                         searchedItems[i].style.display = 'block'
                     } else {
                         searchedItems[i].style.display = 'none'
