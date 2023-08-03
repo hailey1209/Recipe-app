@@ -15,12 +15,8 @@ window.addEventListener('load', function(e){
     // API 데이터
 
     function loadApi(url){
-        return fetch(url)
+         return fetch(url)
         .then(response => response.json())
-    }
-    function loadData(data){
-        return fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=s')
-        .then(data => data.json())
         .then(data => data.meals)
     }
     function showData(data){
@@ -130,6 +126,8 @@ window.addEventListener('load', function(e){
         })
     }
     loadApi('https://www.themealdb.com/api/json/v1/1/search.php?s=s')
-    .then(data => loadData(data))
     .then(data => showData(data))
 })
+
+// api fetch를 두번 반복해서 작성했기 때문에 처음 로딩 속도가 느렸음
+//  중복되는 fetch코드를 삭제 하니 속도가 빨라짐
