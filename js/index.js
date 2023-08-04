@@ -1,13 +1,10 @@
 const scroller = new Scroller(false) // 스크롤 객체 생성
 
 window.addEventListener('load', function(e){
-    document.body.style.display = 'none'
-    function showLoading(){
-    document.body.style.display = 'block'
-    alert("welcome!")
-    }
-    setTimeout(showLoading, 2000)
-    this.clearTimeout(showLoading)
+    // 처음 데이터 로드 중 뜨는 로딩 창
+    const loading = document.querySelector('.loading-page')
+    loading
+
     // 모드변경
     const mode = document.querySelector('.mode')
     const header =document.querySelector('header')
@@ -27,6 +24,7 @@ window.addEventListener('load', function(e){
     }
     function showData(data){
         return new Promise(function (resolve, reject){
+            loading.style.display = "none" //데이터 로딩 완료 후 로딩 창 사라짐
             resolve('success!')
             createContent(data)
             function createContent(data){
@@ -133,6 +131,7 @@ window.addEventListener('load', function(e){
     }
     loadApi('https://www.themealdb.com/api/json/v1/1/search.php?s=s')
     .then(data => showData(data))
+    
 })
 
 // api fetch를 두번 반복해서 작성했기 때문에 처음 로딩 속도가 느렸음
