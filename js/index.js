@@ -88,6 +88,9 @@ window.addEventListener('load', function(e){
                      }
                      getRecipeBtns[i].addEventListener('click', openModal)
                      modalCloseBtns[i].addEventListener('click', closeModal)
+                     searchResult.addEventListener("click", openModal) 
+                     //무한스크롤기능 구현시 새로 로드되는 카드들에는 이벤트가 먹질 않아서 
+                     //카드를 감싸는 컨테이너에 이벤트 위임해줌
  
                      const videoLink = document.querySelectorAll('main .main-top .result .result-items .item-modal .video-btn')
                      const vidoes = document.querySelectorAll('main .main-top .result .result-items .item-modal .video')
